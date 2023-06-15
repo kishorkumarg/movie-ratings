@@ -29,20 +29,13 @@ public class MoviesService {
 
     private final MovieMapper movieMapper;
     @PersistenceContext
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
-    public MoviesService(MoviesRepository moviesRepository, RatingsRepository ratingsRepository, MovieMapper movieMapper) {
+    public MoviesService(MoviesRepository moviesRepository, RatingsRepository ratingsRepository, MovieMapper movieMapper, EntityManager entityManager) {
         this.moviesRepository = moviesRepository;
         this.ratingsRepository = ratingsRepository;
         this.movieMapper = movieMapper;
-    }
-
-    public Movie findById(String id) {
-        return moviesRepository.findById(id).get();
-    }
-
-    public List<Movie> findAll() {
-        return moviesRepository.findAll();
+        this.entityManager = entityManager;
     }
 
     public List<LongestDurationMoviesResponseDTO> getLongestDurationMovies() {

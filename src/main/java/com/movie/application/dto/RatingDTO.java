@@ -1,8 +1,5 @@
 package com.movie.application.dto;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class RatingDTO {
 
     private String tconst;

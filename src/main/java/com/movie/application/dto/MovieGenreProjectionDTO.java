@@ -1,7 +1,10 @@
 package com.movie.application.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class MovieGenreProjectionDTO {
 
+    @JsonIgnore
     private String genres;
 
     private String primaryTitle;
