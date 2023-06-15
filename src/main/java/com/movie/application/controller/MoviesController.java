@@ -1,6 +1,5 @@
 package com.movie.application.controller;
 
-import com.movie.application.domain.Movie;
 import com.movie.application.dto.LongestDurationMoviesResponseDTO;
 import com.movie.application.dto.MovieDTO;
 import com.movie.application.dto.MovieGenreWiseVotesTotalDTO;
@@ -18,18 +17,6 @@ public class MoviesController {
 
     public MoviesController(MoviesService moviesService) {
         this.moviesService = moviesService;
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Movie> findById(@PathVariable String id) {
-
-        return ResponseEntity.ok().body(moviesService.findById(id));
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Movie>> findAll() {
-
-        return ResponseEntity.ok().body(moviesService.findAll());
     }
 
     @GetMapping("/longest-duration-movies")
