@@ -13,6 +13,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class MoviesService {
 
     private final MoviesRepository moviesRepository;
@@ -110,4 +112,10 @@ public class MoviesService {
         return "Updated records: " + updatedCount;
     }
 
+    public List<Movie> findAll() {
+        log.info("MovieService: findAll method started....");
+        List<Movie> movieList = moviesRepository.findAll();
+        log.info("MovieService: findAll method ended....");
+        return movieList;
+    }
 }
